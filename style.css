@@ -1,0 +1,284 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  /* ... your existing body styles ... */
+  box-sizing: border-box;
+  /* Include padding and border in the element's total width and height */
+  margin: 0;
+  /* Remove default body margins */
+}
+
+
+.bordered-heading a {
+  text-decoration: none; /* Remove underline */
+  color: inherit;       /* Inherit color from parent */
+}
+
+
+#my-gif {
+  position: fixed;
+  bottom: -100px;
+  /* Initially hidden below the screen */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  /* Ensure it's on top of other content */
+  animation: move-up 5s forwards;
+  /* Apply the animation */
+}
+
+@keyframes move-up {
+  0% {
+    bottom: -100px;
+    /* Start below the screen */
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    /* Stay visible until 90% of the animation */
+  }
+  100% {
+    bottom: 110%;
+    /* Move past the top of the screen */
+    opacity: 0;
+  }
+}
+
+/* Style for the collapsible section */
+.collapsible {
+  background-color: #eee;
+  color: black;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#winningtickets .collapsible {
+  width: 300px;
+  /* Set a fixed width for the buttons */
+  text-align: center;
+}
+
+.active,
+.collapsible:hover {
+  background-color: #ccc;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f8f8f8;
+}
+
+.total-spent {
+  background-color: #2980b9;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.2em;
+  display: inline-block;
+}
+
+.total-spent span {
+  font-weight: bold;
+}
+
+#balls-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+#balls-container-2 {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+#main-numbers {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.bordered-div {
+  border: 1px solid black;
+  padding: 10px;
+  box-sizing: border-box;
+  /* Include padding and border in the div's total width and height */
+  max-width: 800px;
+  background-color: #f0f0f0;
+}
+.bordered-heading {
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+.container {
+  /* ... other styles ... */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  /* Limit the container width */
+  margin: 0 auto;
+  /* Center the container */
+  padding: 20px;
+}
+.container2 {
+  /* ... other styles ... */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  /* Limit the container width */
+  margin: 0 auto;
+  /* Center the container */
+  padding: 20px;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+.ball2 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+
+/* Media query for smaller screens (e.g., mobile phones) */
+@media (max-width: 600px) {
+  #balls-container,
+  #balls-container-2,
+  #main-numbers {
+    flex-direction: row; /* Keep items in a row */
+    flex-wrap: wrap;     /* Allow wrapping to the next line if needed */
+    justify-content: center; /* Center the items horizontally */
+    gap: 10px;          /* Adjust gap as needed */
+     width: 400px;
+
+  }
+
+  .ball, .ball2 {
+    width: 40px;  /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    position: relative; /* Add this to allow relative positioning */
+    left: -20px;     /* Adjust this value to move it left */
+
+  }
+
+
+
+}
+
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: #ccad00;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.chocolate {
+  background-color: chocolate;
+}
+
+.irish-flag {
+  width: 180px;
+  height: 90px;
+  display: flex;
+}
+
+.irish-flag .green {
+  background-color: #009a49;
+  width: 60px;
+}
+
+.irish-flag .white {
+  background-color: white;
+  width: 60px;
+}
+
+.irish-flag .orange {
+  background-color: #ff883e;
+  width: 60px;
+}
+
+.modern-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.modern-button:hover {
+  background-color: #0069d9;
+}
+
+.resized-image {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+#toggleImage {
+  width: 1px;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lotto is Hard</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div class="bordered-heading">
+  <a href="/"> <h1>How Hard is it to Win the Lottery?</h1> </a>
+</div><br>
+    <br>
+  </main>
+  <div class="bordered-div">
+    <div class="container">
+      <h1>The Irish National Lottery</h1>
+      <div class="irish-flag">
+        <div class="green"></div>
+        <div class="white"></div>
+        <div class="orange"></div>
+      </div>
+      <div style="max-width: 500px;">
+        <p>The Irish Lotto is a national lottery game in Ireland where players pick 6 numbers from 1 to 47. During each draw, 6 random numbers are drawn, along with 1 bonus number. The draw takes place every Wednesday and Saturday night on national television (RTE).</p>
+        <div style="line-height: 1;">
+          <p>This app randomly generated 6 numbers including bonus ball:</p>
+          <p><b>Main Numbers:</b> <span id="main-numbers"></span></p>
+          <p><b>Bonus Number:</b> <span id="bonus-number"></span></p>
+        </div>
+      </div>
+      <p><img src="chance.jpg" alt="Image Description" class="resized-image"></p>
+      <div class="container">
+        <h1>Numbers Drawn:</h1>
+        <div id="balls-container">
+          <div class="ball red"></div>
+          <div class="ball blue"></div>
+          <div class="ball green"></div>
+          <div class="ball yellow"></div>
+          <div class="ball purple"></div>
+          <div class="ball chocolate"></div>
+          <div class="ball orange" style="margin-left: 50px;"></div>
+        </div>
+      </div>
+      <hr size="3" width="50%" color="grey">
+      <div class="container2">
+        <h1>Quick Pick Numbers:</h1>
+        <div id="balls-container-2">
+          <div class="ball2 red"></div>
+          <div class="ball2 blue"></div>
+          <div class="ball2 green"></div>
+          <div class="ball2 yellow"></div>
+          <div class="ball2 purple"></div>
+          <div class="ball2 chocolate"></div>
+          <div class="ball2 orange" style="margin-left: 50px;"></div>
+        </div>
+        <br>
+        <div id="buttons-container">
+          <button onclick="generateNumbers(0)" class="modern-button">Keep Buying a Quick Pick</button> <button onclick="generateNumbers(1)" class="modern-button" id="elon-button" style="display: none;">Buy Quick Picks like Elon Musk</button> <button onclick="generateNumbers(2)" class="modern-button" id="ludspe-button" style="display: none;">Ludicrous Speed</button><br>
+          <img id="my-gif" src="elon-musk-elon.gif" alt="Moving GIF" style="display: none;">
+          <script>
+
+
+                  const myGif = document.getElementById('my-gif');
+                  const elonButton = document.getElementById('elon-button'); // Get the button element
+
+                  elonButton.addEventListener('click', function () {
+                    myGif.style.display = 'block'; // Make the GIF visible
+                    myGif.classList.add('move-up'); // Add the animation class
+                  });
+          </script>
+        </div><br>
+        <img id="lud-gif" src="lud.gif" alt="lud GIF" style="display: none;">
+        <script>
+
+
+              const lud = document.getElementById('lud-gif');
+              const ludButton = document.getElementById('ludspe-button');
+              ludButton.addEventListener('click', function () {
+                lud.style.display = 'block';
+
+                // Hide the GIF after 10 seconds
+                setTimeout(function () {
+                  lud.style.display = 'none';
+                }, 3000); // 10000 milliseconds (10 seconds)
+
+                // ... your generateNumbers(2) logic ...
+              });
+        </script>
+        <div class="content2" style="text-align: center;">
+          <div id="tickets_numbers"></div>
+          <div style="line-height: 1;">
+            <p>Number of tickets: <span id="ticketcounter">0</span></p>
+            <p class="total-spent">Total Spent: €<span id="counter">0.00</span> EUR</p>
+          </div>
+          <div id="numbers"></div><button id="toggleButton" style="display: none;">Click here to reveal the winning ticket</button> <img src="confused.jpg" alt="Winning Ticket" id="toggleImage" style="display: none;">
+          <script>
+
+
+                const toggleImage = document.getElementById('toggleImage');
+                // ... (your existing JavaScript code) ...
+
+                toggleButton.addEventListener('click', function () {
+                  if (toggleImage.style.display === 'none') {
+                    toggleImage.style.display = 'block';
+                    toggleImage.style.width = '300px'; // Set width when showing
+                  } else {
+                    toggleImage.style.display = 'none';
+                  }
+                });
+          </script>
+          <hr size="3" width="50%" color="grey">
+          <h2>Results</h2>
+              <div style="display: grid; grid-template-columns: 1fr 0.5fr; gap: 10px;text-align: left;padding-left: 10px;">
+                <div></div> <div class="matched-numbers"></div>
+                <div>Jackpot Match 5 + Bonus:</div> <div><span id="match-5-bonus">0</span></div>
+                <div>Match 5:</div> <div><span id="match-5">0</span></div>
+                <div>Match 4 + Bonus:</div> <div><span id="match-4-bonus">0</span></div>
+                <div>Match 4:</div> <div><span id="match-4">0</span></div>
+                <div>Match 3 + Bonus:</div> <div><span id="match-3-bonus">0</span></div>
+                <div>Match 3:</div> <div><span id="match-3">0</span></div>
+                <div>Match 2 + Bonus:</div> <div><span id="match-2-bonus">0</span></div>
+                <div>Match 2:</div> <div><span id="match-2">0</span></div>
+              </div>
+
+          <hr size="3" width="50%" color="grey">
+          <p class="total-spent">Approx Prize Return: €<span id="prizeCounter">0.00</span> EUR</p>
+          <p><span id="breakevPrice" style="border: 1px solid black; padding: 5px;">0 EUR</span></p>
+          <div id="timer">
+            00:00:00
+          </div>
+        </div>
+        <hr size="3" width="50%" color="grey">
+        <button type="button" class="collapsible">Winning Tickets worth more than €30</button>
+        <div class="content" style="text-align: center;">
+          <div id="winningtickets">
+            <button type="button" class="collapsible">&gt;&gt; Jackpot Match 5 + Bonus Tickets &lt;&lt;</button>
+            <div class="content">
+              <div id="winningtickets3000"></div>
+            </div><br>
+            <button type="button" class="collapsible">&gt;&gt; Match 5 Tickets &lt;&lt;</button>
+            <div class="content">
+              <div id="winningtickets73"></div>
+            </div><br>
+            <button type="button" class="collapsible">&gt;&gt; Match 4 + Bonus Tickets &lt;&lt;</button>
+            <div class="content">
+              <div id="winningtickets157"></div>
+            </div><br>
+            <button type="button" class="collapsible">&gt;&gt; Match 4 Tickets &lt;&lt;</button>
+            <div class="content">
+              <div id="winningtickets244"></div>
+            </div><br>
+            <button type="button" class="collapsible">&gt;&gt; Match 3 + Bonus Tickets &lt;&lt;</button>
+            <div class="content">
+              <div id="winningtickets63"></div>
+            </div><br>
+            <button type="button" class="collapsible">&gt;&gt; Match 3 Tickets &lt;&lt;</button>
+            <div class="content">
+              <div id="winningtickets30"></div>
+            </div>
+          </div>
+        </div>
+        <script>
+              var coll = document.getElementsByClassName("collapsible");
+              var i;
+              for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                  this.classList.toggle("active");
+                  var content = this.nextElementSibling;
+                  if (content.style.display === "block") {
+                    content.style.display = "none";
+                  } else {
+                    content.style.display = "block";
+                  }
+                });
+              }
+        </script>
+      </div>
+      <footer>
+        <p>Created by: MickCue</p>
+      </footer>
+      <script src="script.js"></script>
+    </div>
+  </div>
+</body>
+</html>
